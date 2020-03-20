@@ -1,3 +1,4 @@
+import logging
 import os
 from collections import Counter
 
@@ -9,6 +10,7 @@ from sklearn.externals import joblib
 from audio_recognition.constants import BASE_DIR, RECOGNITION_LENGTH
 from audio_recognition.simple.v2.features_extracting import get_features
 
+logger = logging.getLogger(__name__)
 
 path_to_dir = os.path.dirname(os.path.abspath(__file__))
 model_path = os.path.join(path_to_dir, 'model.h5')
@@ -39,6 +41,7 @@ def predict_genre(file_path):
         y_partial = y[start_idx:end_idx]
         predicted_genre = predict_genre_part(y_partial, sr)
         predicted_genres.append(predicted_genre)
+        logger.warning("part" + ", " + "part_count")
     c = Counter(predicted_genres)
     print(c)
     audio_genres = list()
