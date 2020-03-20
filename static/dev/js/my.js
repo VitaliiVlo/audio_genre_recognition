@@ -21,6 +21,7 @@ $("#file-1").change(function () {
         url: '/recognize',
         data: formData,
         type: 'POST',
+        timeout: 0,
         contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
         processData: false, // NEEDED, DON'T OMIT THIS
         success: function (data) {
