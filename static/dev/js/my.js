@@ -12,10 +12,14 @@ window.onclick = function (event) {
 };
 
 $("#file-1").change(function () {
-    var form = $('#audio_form')[0]; // You need to use standard javascript object here
     var formData = new FormData();
-    formData.append('audio', $('input[type=file]')[0].files[0]);
-    console.log(formData.get("audio"));
+    var fileInput = $('input[type=file]');
+    formData.append('audio', fileInput[0].files[0]);
+    var fileExtension = ['.mp3', '.mp3', '.aac', '.oga', '.flac', '.wav', '.pcm', '.aiff', '.wma'];
+    if ($.inArray(fileInput.val().split('.').pop().toLowerCase(), fileExtension) === -1) {
+        alert("Only formats are allowed : " + fileExtension.join(', '));
+        return;
+    }
     $("#loader").show();
     $.ajax({
         url: '/recognize',
