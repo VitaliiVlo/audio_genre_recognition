@@ -15,7 +15,7 @@ $("#file-1").change(function () {
     var formData = new FormData();
     var fileInput = $('input[type=file]');
     formData.append('audio', fileInput[0].files[0]);
-    var fileExtension = ['.mp3', '.mp3', '.aac', '.oga', '.flac', '.wav', '.pcm', '.aiff', '.wma'];
+    var fileExtension = ['mp3', 'm4a', 'aac', 'oga', 'flac', 'wav', 'pcm', 'aiff', 'wma'];
     if ($.inArray(fileInput.val().split('.').pop().toLowerCase(), fileExtension) === -1) {
         alert("Only formats are allowed : " + fileExtension.join(', '));
         return;
