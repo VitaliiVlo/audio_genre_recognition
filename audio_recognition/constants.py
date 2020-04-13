@@ -3,7 +3,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 AUDIO_PATH = os.path.join(os.path.dirname(BASE_DIR), 'genres')
 
-RECOGNITION_LENGTH = 10
+RECOGNITION_LENGTH = 10  # in seconds
 
 COL_NAMES = ['genre', 'signal_mean', 'signal_std', 'signal_skew', 'signal_kurtosis',
              'zcr_mean', 'zcr_std', 'rmse_mean', 'rmse_std', 'tempo',
@@ -18,3 +18,5 @@ COL_NAMES = ['genre', 'signal_mean', 'signal_std', 'signal_skew', 'signal_kurtos
             ['mfccs_' + str(i + 1) + '_std' for i in range(20)] + \
             ['chroma_stft_' + str(i + 1) + '_mean' for i in range(12)] + \
             ['chroma_stft_' + str(i + 1) + '_std' for i in range(12)]
+
+MAX_AUDIO_DURATION = 120  # in seconds

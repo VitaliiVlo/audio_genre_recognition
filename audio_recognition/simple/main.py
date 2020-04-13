@@ -7,7 +7,7 @@ import numpy as np
 from keras.models import load_model
 from sklearn.externals import joblib
 
-from audio_recognition.constants import BASE_DIR, RECOGNITION_LENGTH
+from audio_recognition.constants import BASE_DIR, RECOGNITION_LENGTH, MAX_AUDIO_DURATION
 from audio_recognition.simple.v2.features_extracting import get_features
 
 logger = logging.getLogger(__name__)
@@ -31,7 +31,7 @@ def predict_genre_part(y, sr):
 
 
 def predict_genre(file_path):
-    y, sr = librosa.load(file_path, mono=True, sr=22050)
+    y, sr = librosa.load(file_path, mono=True, sr=22050, duration=MAX_AUDIO_DURATION)
     length = librosa.get_duration(y, sr=sr)
     predicted_genres = list()
     part_count = int(length // RECOGNITION_LENGTH)
