@@ -1,1 +1,1 @@
-web: gunicorn audio_backend.wsgi --log-file -
+web: gunicorn audio_backend.wsgi --timeout 60 --log-file -
