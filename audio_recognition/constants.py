@@ -19,4 +19,4 @@ COL_NAMES = ['genre', 'signal_mean', 'signal_std', 'signal_skew', 'signal_kurtos
             ['chroma_stft_' + str(i + 1) + '_mean' for i in range(12)] + \
             ['chroma_stft_' + str(i + 1) + '_std' for i in range(12)]
 
-MAX_AUDIO_DURATION = 120  # in seconds
+MAX_AUDIO_DURATION = 300  # in seconds
